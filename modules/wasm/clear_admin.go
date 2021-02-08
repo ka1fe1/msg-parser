@@ -1,6 +1,6 @@
 package wasm
 
-//import . "github.com/weichang-bianjie/irita-msg-parser/modules"
+//import . "github.com/kaifei-bianjie/msg-parser/modules"
 //
 //// MsgClearAdmin removes any admin stored for a smart contract
 //type DocMsgClearAdmin struct {

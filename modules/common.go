@@ -3,8 +3,8 @@ package msgs
 import (
 	"github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	models "github.com/weichang-bianjie/irita-msg-parser/types"
-	"github.com/weichang-bianjie/irita-msg-parser/utils"
+	models "github.com/kaifei-bianjie/msg-parser/types"
+	"github.com/kaifei-bianjie/msg-parser/utils"
 )
 
 func CreateMsgDocInfo(msg sdk.Msg, handler func() (Msg, []string)) MsgDocInfo {

@@ -1,8 +1,8 @@
 package oracle
 
 import (
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
-	"github.com/weichang-bianjie/irita-msg-parser/types"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
+	"github.com/kaifei-bianjie/msg-parser/types"
 )
 
 type DocMsgCreateFeed struct {

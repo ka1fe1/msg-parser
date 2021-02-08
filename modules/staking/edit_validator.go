@@ -1,7 +1,7 @@
 package staking
 
 import (
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
 )
 
 // MsgEditValidator - struct for editing a validator

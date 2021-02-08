@@ -2,7 +2,7 @@ package slashing
 
 import (
 	"github.com/cosmos/cosmos-sdk/x/slashing"
-	"github.com/weichang-bianjie/irita-msg-parser/codec"
+	"github.com/kaifei-bianjie/msg-parser/codec"
 )
 
 func init() {

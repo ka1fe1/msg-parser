@@ -1,4 +1,4 @@
-module github.com/weichang-bianjie/irita-msg-parser
+module github.com/kaifei-bianjie/msg-parser
 
 go 1.14
 

@@ -2,7 +2,7 @@ package ibc
 
 import (
 	"encoding/json"
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
 	"gitlab.bianjie.ai/cschain/cschain/modules/ibc/core/types"
 )
 

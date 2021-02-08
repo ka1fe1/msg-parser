@@ -2,7 +2,7 @@ package evidence
 
 import (
 	"encoding/json"
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
 )
 
 // MsgSubmitEvidence defines an sdk.Msg type that supports submitting arbitrary

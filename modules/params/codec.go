@@ -2,7 +2,7 @@ package params
 
 import (
 	"github.com/bianjieai/iritamod/modules/params"
-	"github.com/weichang-bianjie/irita-msg-parser/codec"
+	"github.com/kaifei-bianjie/msg-parser/codec"
 )
 
 func init() {

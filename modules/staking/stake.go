@@ -2,7 +2,7 @@ package staking
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
 )
 
 type stakingClient struct {

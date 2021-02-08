@@ -1,8 +1,8 @@
 package identity
 
 import (
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
-	"github.com/weichang-bianjie/irita-msg-parser/utils"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
+	"github.com/kaifei-bianjie/msg-parser/utils"
 )
 
 // MsgUpdateIdentity defines a message to update an identity

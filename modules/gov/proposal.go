@@ -1,7 +1,7 @@
 package gov
 
 import (
-	models "github.com/weichang-bianjie/irita-msg-parser/types"
+	models "github.com/kaifei-bianjie/msg-parser/types"
 	"time"
 )
 

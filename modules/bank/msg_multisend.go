@@ -1,8 +1,8 @@
 package bank
 
 import (
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
-	models "github.com/weichang-bianjie/irita-msg-parser/types"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
+	models "github.com/kaifei-bianjie/msg-parser/types"
 )
 
 type (

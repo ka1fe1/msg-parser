@@ -1,6 +1,6 @@
 package distribution
 
-import . "github.com/weichang-bianjie/irita-msg-parser/modules"
+import . "github.com/kaifei-bianjie/msg-parser/modules"
 
 // msg struct for validator withdraw
 type DocTxMsgWithdrawValidatorCommission struct {

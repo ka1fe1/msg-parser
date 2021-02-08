@@ -1,10 +1,10 @@
 package ibc
 
 import (
-	"github.com/weichang-bianjie/irita-msg-parser/codec"
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
-	"github.com/weichang-bianjie/irita-msg-parser/modules/ibc/record"
-	"github.com/weichang-bianjie/irita-msg-parser/utils"
+	"github.com/kaifei-bianjie/msg-parser/codec"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
+	"github.com/kaifei-bianjie/msg-parser/modules/ibc/record"
+	"github.com/kaifei-bianjie/msg-parser/utils"
 	recordtype "gitlab.bianjie.ai/cschain/cschain/modules/ibc/applications/record/types"
 	"gitlab.bianjie.ai/cschain/cschain/modules/ibc/core/types"
 )

@@ -1,7 +1,7 @@
 package ibc
 
 import (
-	"github.com/weichang-bianjie/irita-msg-parser/codec"
+	"github.com/kaifei-bianjie/msg-parser/codec"
 	ibcrecord "gitlab.bianjie.ai/cschain/cschain/modules/ibc/applications/record"
 	ibc "gitlab.bianjie.ai/cschain/cschain/modules/ibc/core"
 )

@@ -1,10 +1,10 @@
 package gov
 
 import (
-	cdc "github.com/weichang-bianjie/irita-msg-parser/codec"
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
-	models "github.com/weichang-bianjie/irita-msg-parser/types"
-	"github.com/weichang-bianjie/irita-msg-parser/utils"
+	cdc "github.com/kaifei-bianjie/msg-parser/codec"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
+	models "github.com/kaifei-bianjie/msg-parser/types"
+	"github.com/kaifei-bianjie/msg-parser/utils"
 )
 
 type DocTxMsgSubmitProposal struct {

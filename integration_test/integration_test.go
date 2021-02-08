@@ -1,8 +1,8 @@
 package integration
 
 import (
+	msg_sdk "github.com/kaifei-bianjie/msg-parser"
 	"github.com/stretchr/testify/suite"
-	msg_sdk "github.com/weichang-bianjie/irita-msg-parser"
 	"testing"
 )
 

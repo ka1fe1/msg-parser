@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/irisnet/irismod/modules/service"
-	"github.com/weichang-bianjie/irita-msg-parser/codec"
+	"github.com/kaifei-bianjie/msg-parser/codec"
 )
 
 func init() {

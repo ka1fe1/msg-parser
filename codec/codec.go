@@ -23,33 +23,6 @@ var (
 	encodecfg  params.EncodingConfig
 )
 
-//// 初始化账户地址前缀
-//var (
-//	moduleBasics = module.NewBasicManager(
-//		auth.AppModuleBasic{},
-//		bank.AppModuleBasic{},
-//		service.AppModuleBasic{},
-//		nft.AppModuleBasic{},
-//		record.AppModuleBasic{},
-//		token.AppModuleBasic{},
-//		gov.AppModuleBasic{},
-//		staking.AppModuleBasic{},
-//		distribution.AppModuleBasic{},
-//		slashing.AppModuleBasic{},
-//		evidence.AppModuleBasic{},
-//		crisis.AppModuleBasic{},
-//		identity.AppModuleBasic{},
-//		htlc.AppModuleBasic{},
-//		coinswap.AppModuleBasic{},
-//		oracle.AppModuleBasic{},
-//		random.AppModuleBasic{},
-//		ibc.AppModuleBasic{},
-//		ibcrecord.AppModuleBasic{},
-//		admin.AppModuleBasic{},
-//		iritaparams.AppModuleBasic{},
-//	)
-//)
-
 // 初始化账户地址前缀
 func MakeEncodingConfig() {
 	amino := codec.NewLegacyAmino()

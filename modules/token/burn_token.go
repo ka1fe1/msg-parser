@@ -2,7 +2,7 @@ package token
 
 //
 //import (
-//	. "github.com/weichang-bianjie/irita-msg-parser/modules"
+//	. "github.com/kaifei-bianjie/msg-parser/modules"
 //)
 //
 //// MsgBurnToken defines an SDK message for burning some tokens.

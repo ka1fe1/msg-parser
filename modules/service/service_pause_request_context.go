@@ -1,7 +1,7 @@
 package service
 
 import (
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
 	"strings"
 )
 

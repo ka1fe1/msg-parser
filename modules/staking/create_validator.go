@@ -2,8 +2,8 @@ package staking
 
 import (
 	stake "github.com/cosmos/cosmos-sdk/x/staking/types"
-	cdc "github.com/weichang-bianjie/irita-msg-parser/codec"
-	. "github.com/weichang-bianjie/irita-msg-parser/modules"
+	cdc "github.com/kaifei-bianjie/msg-parser/codec"
+	. "github.com/kaifei-bianjie/msg-parser/modules"
 )
 
 // MsgCreateValidator defines an SDK message for creating a new validator.

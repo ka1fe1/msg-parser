@@ -24,7 +24,7 @@ import (
 	record "github.com/irisnet/irismod/modules/record/types"
 	service "github.com/irisnet/irismod/modules/service/types"
 	token "github.com/irisnet/irismod/modules/token/types"
-	models "github.com/weichang-bianjie/irita-msg-parser/types"
+	models "github.com/kaifei-bianjie/msg-parser/types"
 	cschainibc "gitlab.bianjie.ai/cschain/cschain/modules/ibc/core/types"
 )
 

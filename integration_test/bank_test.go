@@ -3,8 +3,8 @@ package integration
 import (
 	"encoding/hex"
 	"fmt"
-	. "github.com/weichang-bianjie/irita-msg-parser/codec"
-	"github.com/weichang-bianjie/irita-msg-parser/utils"
+	. "github.com/kaifei-bianjie/msg-parser/codec"
+	"github.com/kaifei-bianjie/msg-parser/utils"
 )
 
 func (s IntegrationTestSuite) TestBank() {
