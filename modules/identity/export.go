@@ -1,4 +1,4 @@
-package wasm
+package identity
 
 import (
 	"github.com/cosmos/cosmos-sdk/types"
