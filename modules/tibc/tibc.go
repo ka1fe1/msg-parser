@@ -16,30 +16,30 @@ func (ibc tibcClient) HandleTxMsg(v types.Msg) (MsgDocInfo, bool) {
 		msgDocInfo MsgDocInfo
 	)
 	ok := true
-	switch v.Type() {
-	case new(MsgTIBCNftTransfer).Type():
+	switch msg := v.(type) {
+	case *MsgTIBCNftTransfer:
 		docMsg := DocMsgTIBCNftTransfer{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 		break
-	case new(MsgTIBCUpdateClient).Type():
+	case *MsgTIBCUpdateClient:
 		docMsg := DocMsgTIBCUpdateClient{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 		break
-	case new(MsgTIBCRecvPacket).Type():
+	case *MsgTIBCRecvPacket:
 		docMsg := DocMsgTIBCRecvPacket{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 		break
-	case new(MsgTIBCAcknowledgement).Type():
+	case *MsgTIBCAcknowledgement:
 		docMsg := DocMsgTIBCAcknowledgement{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 		break
-	case new(MsgCleanPacket).Type():
+	case *MsgCleanPacket:
 		docMsg := DocMsgCleanPacket{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 		break
-	case new(MsgRecvCleanPacket).Type():
+	case *MsgRecvCleanPacket:
 		docMsg := DocMsgRecvCleanPacket{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 		break
 	default:
 		ok = false
