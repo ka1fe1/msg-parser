@@ -15,7 +15,7 @@ type (
 		Timeout           int64        `bson:"timeout"`
 		SuperMode         bool         `bson:"super_mode"`
 		Repeated          bool         `bson:"repeated"`
-		RepeatedFrequency uint64       `bson:"repeated_frequency"`
+		RepeatedFrequency int64        `bson:"repeated_frequency"`
 		RepeatedTotal     int64        `bson:"repeated_total"`
 	}
 )
@@ -36,7 +36,7 @@ func (m *DocMsgCallService) BuildMsg(msg interface{}) {
 	//m.Input = hex.EncodeToString(v.Input)
 	m.SuperMode = v.SuperMode
 	m.Repeated = v.Repeated
-	m.RepeatedFrequency = v.RepeatedFrequency
+	m.RepeatedFrequency = int64(v.RepeatedFrequency)
 	m.RepeatedTotal = v.RepeatedTotal
 }
 
