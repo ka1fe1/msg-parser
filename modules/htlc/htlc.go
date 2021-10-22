@@ -12,8 +12,8 @@ type DocTxMsgCreateHTLC struct {
 	ReceiverOnOtherChain string        `bson:"receiver_on_other_chain"` // the claim receiving address on the other chain
 	Amount               []models.Coin `bson:"amount"`                  // the amount to be transferred
 	HashLock             string        `bson:"hash_lock"`               // the hash lock generated from secret (and timestamp if provided)
-	Timestamp            uint64        `bson:"timestamp"`               // if provided, used to generate the hash lock together with secret
-	TimeLock             uint64        `bson:"time_lock"`               // the time span after which the HTLC will expire
+	Timestamp            int64         `bson:"timestamp"`               // if provided, used to generate the hash lock together with secret
+	TimeLock             int64         `bson:"time_lock"`               // the time span after which the HTLC will expire
 }
 
 func (doctx *DocTxMsgCreateHTLC) GetType() string {
@@ -25,9 +25,9 @@ func (doctx *DocTxMsgCreateHTLC) BuildMsg(txMsg interface{}) {
 	doctx.Sender = msg.Sender
 	doctx.To = msg.To
 	doctx.Amount = models.BuildDocCoins(msg.Amount)
-	doctx.Timestamp = msg.Timestamp
+	doctx.Timestamp = int64(msg.Timestamp)
 	doctx.HashLock = msg.HashLock
-	doctx.TimeLock = msg.TimeLock
+	doctx.TimeLock = int64(msg.TimeLock)
 	doctx.ReceiverOnOtherChain = msg.ReceiverOnOtherChain
 }
 
