@@ -9,7 +9,7 @@ import (
 type DocMsgRecvPacket struct {
 	Packet      Packet   `bson:"packet"`
 	Proof       string   `bson:"proof"`
-	ProofHeight uint64   `bson:"proof_height"`
+	ProofHeight int64    `bson:"proof_height"`
 	ProofPath   []string `bson:"proof_path"`
 	ProofData   string   `bson:"proof_data"`
 	ClientID    string   `bson:"client_id"`
@@ -33,7 +33,7 @@ func (m *DocMsgRecvPacket) BuildMsg(v interface{}) {
 	msg := v.(*MsgRecvPacket)
 
 	m.Proof = string(msg.Proof)
-	m.ProofHeight = msg.ProofHeight
+	m.ProofHeight = int64(msg.ProofHeight)
 	m.ProofPath = msg.ProofPath
 	m.ProofData = string(msg.ProofData)
 	m.ClientID = msg.ClientID

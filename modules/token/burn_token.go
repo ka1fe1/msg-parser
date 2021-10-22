@@ -8,7 +8,7 @@ package token
 //// MsgBurnToken defines an SDK message for burning some tokens.
 //type DocMsgBurnToken struct {
 //	Symbol string `bson:"symbol"`
-//	Amount uint64 `bson:"amount"`
+//	Amount int64 `bson:"amount"`
 //	Sender string `bson:"sender"`
 //}
 //

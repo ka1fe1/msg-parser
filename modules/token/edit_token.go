@@ -7,7 +7,7 @@ import (
 type DocMsgEditToken struct {
 	Symbol    string `bson:"symbol"`
 	Name      string `bson:"name"`
-	MaxSupply uint64 `bson:"max_supply"`
+	MaxSupply int64  `bson:"max_supply"`
 	Mintable  bool   `bson:"mintable"`
 	Owner     string `bson:"owner"`
 }
@@ -22,7 +22,7 @@ func (m *DocMsgEditToken) BuildMsg(v interface{}) {
 	m.Symbol = msg.Symbol
 	m.Owner = msg.Owner
 	m.Name = msg.Name
-	m.MaxSupply = msg.MaxSupply
+	m.MaxSupply = int64(msg.MaxSupply)
 	m.Mintable = msg.Mintable.ToBool()
 }
 
