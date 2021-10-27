@@ -28,6 +28,7 @@ type PacketData struct {
 	Sender         string `bson:"sender"`
 	Receiver       string `bson:"receiver"`
 	AwayFromOrigin bool   `bson:"away_from_origin"`
+	DestContract   string `bson:"dest_contract"`
 }
 
 // CleanPacket defines a type that carries data across different chains through TIBC

@@ -46,7 +46,7 @@ func UnmarshalPacketData(bytesdata []byte) PacketData {
 	var (
 		packetData NonFungibleTokenPacketData
 	)
-	cdc.GetMarshaler().MustUnmarshalBinaryBare(bytesdata, &packetData)
+	cdc.GetMarshaler().Unmarshal(bytesdata, &packetData)
 	return PacketData{
 		Class:          packetData.Class,
 		Receiver:       packetData.Receiver,
@@ -54,5 +54,6 @@ func UnmarshalPacketData(bytesdata []byte) PacketData {
 		Id:             packetData.Id,
 		Uri:            packetData.Uri,
 		AwayFromOrigin: packetData.AwayFromOrigin,
+		DestContract:   packetData.DestContract,
 	}
 }

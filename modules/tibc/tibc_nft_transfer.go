@@ -7,12 +7,13 @@ import (
 
 type DocMsgTIBCNftTransfer struct {
 	// the class to which the NFT to be transferred belongs
-	Class       string `bson:"class"`
-	Id          string `bson:"id"`
-	Sender      string `bson:"sender"`
-	Receiver    string `bson:"receiver"`
-	DestChain   string `bson:"dest_chain"`
-	RealayChain string `bson:"realay_chain"`
+	Class        string `bson:"class"`
+	Id           string `bson:"id"`
+	Sender       string `bson:"sender"`
+	Receiver     string `bson:"receiver"`
+	DestChain    string `bson:"dest_chain"`
+	RealayChain  string `bson:"realay_chain"`
+	DestContract string `bson:"dest_contract"`
 }
 
 func (m *DocMsgTIBCNftTransfer) GetType() string {
@@ -27,6 +28,7 @@ func (m *DocMsgTIBCNftTransfer) BuildMsg(v interface{}) {
 	m.Receiver = msg.Receiver
 	m.DestChain = msg.DestChain
 	m.RealayChain = msg.RealayChain
+	m.DestContract = msg.DestContract
 }
 
 func (m *DocMsgTIBCNftTransfer) HandleTxMsg(v SdkMsg) MsgDocInfo {
