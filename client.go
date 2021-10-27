@@ -8,6 +8,7 @@ import (
 	"github.com/kaifei-bianjie/msg-parser/modules/crisis"
 	"github.com/kaifei-bianjie/msg-parser/modules/distribution"
 	"github.com/kaifei-bianjie/msg-parser/modules/evidence"
+	"github.com/kaifei-bianjie/msg-parser/modules/farm"
 	"github.com/kaifei-bianjie/msg-parser/modules/gov"
 	"github.com/kaifei-bianjie/msg-parser/modules/htlc"
 	"github.com/kaifei-bianjie/msg-parser/modules/ibc"
@@ -19,6 +20,7 @@ import (
 	"github.com/kaifei-bianjie/msg-parser/modules/service"
 	"github.com/kaifei-bianjie/msg-parser/modules/slashing"
 	"github.com/kaifei-bianjie/msg-parser/modules/staking"
+	"github.com/kaifei-bianjie/msg-parser/modules/tibc"
 	"github.com/kaifei-bianjie/msg-parser/modules/token"
 	"github.com/kaifei-bianjie/msg-parser/modules/upgrade"
 )
@@ -43,6 +45,8 @@ type MsgClient struct {
 	Htlc         htlc.Client
 	Record       record.Client
 	Coinswap     coinswap.Client
+	Farm         farm.Client
+	Tibc         tibc.Client
 	//Wasm         wasm.Client
 }
 
@@ -68,6 +72,8 @@ func NewMsgClient() MsgClient {
 		Htlc:         htlc.NewClient(),
 		Token:        token.NewClient(),
 		Coinswap:     coinswap.NewClient(),
+		Farm:         farm.NewClient(),
+		Tibc:         tibc.NewClient(),
 		//Wasm:         wasm.NewClient(),
 	}
 }

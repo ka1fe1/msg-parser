@@ -1,6 +1,9 @@
 package msgs
 
 import (
+	tibctranfer "github.com/bianjieai/tibc-go/modules/tibc/apps/nft_transfer/types"
+	tibcclient "github.com/bianjieai/tibc-go/modules/tibc/core/02-client/types"
+	tibcpacket "github.com/bianjieai/tibc-go/modules/tibc/core/04-packet/types"
 	//"github.com/CosmWasm/wasmd/x/wasm"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bank "github.com/cosmos/cosmos-sdk/x/bank/types"
@@ -8,14 +11,15 @@ import (
 	distribution "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	evidence "github.com/cosmos/cosmos-sdk/x/evidence/types"
 	gov "github.com/cosmos/cosmos-sdk/x/gov/types"
-	ibctransfer "github.com/cosmos/cosmos-sdk/x/ibc/applications/transfer/types"
-	ibcclient "github.com/cosmos/cosmos-sdk/x/ibc/core/02-client/types"
-	ibcconnect "github.com/cosmos/cosmos-sdk/x/ibc/core/03-connection/types"
-	ibc "github.com/cosmos/cosmos-sdk/x/ibc/core/04-channel/types"
-	ibcchannel "github.com/cosmos/cosmos-sdk/x/ibc/core/04-channel/types"
 	slashing "github.com/cosmos/cosmos-sdk/x/slashing/types"
 	stake "github.com/cosmos/cosmos-sdk/x/staking/types"
+	ibctransfer "github.com/cosmos/ibc-go/modules/apps/transfer/types"
+	ibcclient "github.com/cosmos/ibc-go/modules/core/02-client/types"
+	ibcconnect "github.com/cosmos/ibc-go/modules/core/03-connection/types"
+	ibc "github.com/cosmos/ibc-go/modules/core/04-channel/types"
+	ibcchannel "github.com/cosmos/ibc-go/modules/core/04-channel/types"
 	coinswap "github.com/irisnet/irismod/modules/coinswap/types"
+	farm "github.com/irisnet/irismod/modules/farm/types"
 	htlc "github.com/irisnet/irismod/modules/htlc/types"
 	nft "github.com/irisnet/irismod/modules/nft/types"
 	oracle "github.com/irisnet/irismod/modules/oracle/types"
@@ -27,14 +31,22 @@ import (
 )
 
 const (
-	MsgTypeSend         = "send"
-	MsgTypeMultiSend    = "multisend"
-	MsgTypeNFTMint      = "mint_nft"
-	MsgTypeNFTEdit      = "edit_nft"
-	MsgTypeNFTTransfer  = "transfer_nft"
-	MsgTypeNFTBurn      = "burn_nft"
-	MsgTypeIssueDenom   = "issue_denom"
-	MsgTypeRecordCreate = "create_record"
+	MsgTypeSend          = "send"
+	MsgTypeMultiSend     = "multisend"
+	MsgTypeNFTMint       = "mint_nft"
+	MsgTypeNFTEdit       = "edit_nft"
+	MsgTypeNFTTransfer   = "transfer_nft"
+	MsgTypeTransferDenom = "transfer_denom"
+	MsgTypeNFTBurn       = "burn_nft"
+	MsgTypeIssueDenom    = "issue_denom"
+	MsgTypeRecordCreate  = "create_record"
+
+	MsgTypeCreatePool  = "create_pool"
+	MsgTypeDestroyPool = "destroy_pool"
+	MsgTypeAdjustPool  = "adjust_pool"
+	MsgTypeStake       = "stake"
+	MsgTypeUnstake     = "unstake"
+	MsgTypeHarvest     = "harvest"
 
 	MsgTypeMintToken          = "mint_token"
 	MsgTypeBurnToken          = "burn_token"
@@ -121,6 +133,13 @@ const (
 	MsgTypeInstantiateContract = "instantiate"
 	MsgTypeMigrateContract     = "migrate"
 	MsgTypeStoreCode           = "store_code"
+
+	MsgTypeTIBCNftTransfer     = "tibc_nft_transfer"
+	MsgTypeTIBCRecvPacket      = "tibc_recv_packet"
+	MsgTypeTIBCUpdateClient    = "tibc_update_client"
+	MsgTypeTIBCAcknowledgement = "tibc_acknowledge_packet"
+	MsgTypeTIBCCleanPacket     = "clean_packet"
+	MsgTypeTIBCRecvCleanPacket = "recv_clean_packet"
 )
 
 type (
@@ -139,11 +158,19 @@ type (
 	MsgSend      = bank.MsgSend
 	MsgMultiSend = bank.MsgMultiSend
 
-	MsgNFTMint     = nft.MsgMintNFT
-	MsgNFTEdit     = nft.MsgEditNFT
-	MsgNFTTransfer = nft.MsgTransferNFT
-	MsgNFTBurn     = nft.MsgBurnNFT
-	MsgIssueDenom  = nft.MsgIssueDenom
+	MsgNFTMint       = nft.MsgMintNFT
+	MsgNFTEdit       = nft.MsgEditNFT
+	MsgNFTTransfer   = nft.MsgTransferNFT
+	MsgNFTBurn       = nft.MsgBurnNFT
+	MsgIssueDenom    = nft.MsgIssueDenom
+	MsgTransferDenom = nft.MsgTransferDenom
+
+	MsgUnstake     = farm.MsgUnstake
+	MsgStake       = farm.MsgStake
+	MsgCreatePool  = farm.MsgCreatePool
+	MsgDestroyPool = farm.MsgDestroyPool
+	MsgAdjustPool  = farm.MsgAdjustPool
+	MsgHarvest     = farm.MsgHarvest
 
 	MsgDefineService  = service.MsgDefineService
 	MsgBindService    = service.MsgBindService
@@ -238,4 +265,11 @@ type (
 	//MsgMigrateContract     = wasm.MsgMigrateContract
 	//MsgUpdateAdmin         = wasm.MsgUpdateAdmin
 	//MsgClearAdmin          = wasm.MsgClearAdmin
+	NonFungibleTokenPacketData = tibctranfer.NonFungibleTokenPacketData
+	MsgTIBCNftTransfer         = tibctranfer.MsgNftTransfer
+	MsgTIBCUpdateClient        = tibcclient.MsgUpdateClient
+	MsgTIBCRecvPacket          = tibcpacket.MsgRecvPacket
+	MsgTIBCAcknowledgement     = tibcpacket.MsgAcknowledgement
+	MsgCleanPacket             = tibcpacket.MsgCleanPacket
+	MsgRecvCleanPacket         = tibcpacket.MsgRecvCleanPacket
 )
