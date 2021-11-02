@@ -2,7 +2,6 @@ package types
 
 import (
 	"github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth/legacy/legacytx"
 )
 
 type (
@@ -16,8 +15,7 @@ type (
 		BuildMsg(msg interface{})
 	}
 
-	SdkMsg    types.Msg
-	LegacyMsg legacytx.LegacyMsg
+	SdkMsg types.Msg
 )
 
 func MsgTypeURL(msg SdkMsg) string {
