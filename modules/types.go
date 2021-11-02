@@ -265,6 +265,7 @@ type (
 	//MsgMigrateContract     = wasm.MsgMigrateContract
 	//MsgUpdateAdmin         = wasm.MsgUpdateAdmin
 	//MsgClearAdmin          = wasm.MsgClearAdmin
+	Acknowledgement            = tibcpacket.Acknowledgement
 	NonFungibleTokenPacketData = tibctranfer.NonFungibleTokenPacketData
 	MsgTIBCNftTransfer         = tibctranfer.MsgNftTransfer
 	MsgTIBCUpdateClient        = tibcclient.MsgUpdateClient
