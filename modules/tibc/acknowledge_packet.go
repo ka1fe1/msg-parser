@@ -1,7 +1,6 @@
 package tibc
 
 import (
-	cdc "github.com/kaifei-bianjie/msg-parser/codec"
 	. "github.com/kaifei-bianjie/msg-parser/modules"
 	"github.com/kaifei-bianjie/msg-parser/utils"
 )
@@ -22,7 +21,7 @@ func (m *DocMsgTIBCAcknowledgement) BuildMsg(v interface{}) {
 	msg := v.(*MsgTIBCAcknowledgement)
 	m.Signer = msg.Signer
 	m.ProofHeight = loadHeight(msg.ProofHeight)
-	m.Acknowledgement = unmarshalAcknowledgement(msg.Acknowledgement)
+	m.Acknowledgement = UnmarshalTibcAcknowledgement(msg.Acknowledgement)
 	m.ProofAcked = utils.MarshalJsonIgnoreErr(msg.ProofAcked)
 	m.Packet = loadPacket(msg.Packet)
 
@@ -40,11 +39,4 @@ func (m *DocMsgTIBCAcknowledgement) HandleTxMsg(v SdkMsg) MsgDocInfo {
 		return m, addrs
 	}
 	return CreateMsgDocInfo(v, handler)
-}
-func unmarshalAcknowledgement(bytesdata []byte) string {
-	var result Acknowledgement
-	if err := cdc.GetMarshaler().Unmarshal(bytesdata, &result); err == nil {
-		return result.String()
-	}
-	return ""
 }

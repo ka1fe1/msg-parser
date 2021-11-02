@@ -22,7 +22,7 @@ func (m *DocMsgAcknowledgement) BuildMsg(v interface{}) {
 	msg := v.(*MsgAcknowledgement)
 	m.Signer = msg.Signer
 	m.ProofHeight = loadHeight(msg.ProofHeight)
-	m.Acknowledgement = utils.MarshalJsonIgnoreErr(msg.Acknowledgement)
+	m.Acknowledgement = UnmarshalAcknowledgement(msg.Acknowledgement)
 	m.ProofAcked = utils.MarshalJsonIgnoreErr(msg.ProofAcked)
 	m.Packet = loadPacket(msg.Packet)
 
