@@ -1,6 +1,7 @@
 package msgs
 
 import (
+	"github.com/bianjieai/iritamod/modules/identity"
 	tibctranfer "github.com/bianjieai/tibc-go/modules/tibc/apps/nft_transfer/types"
 	tibcclient "github.com/bianjieai/tibc-go/modules/tibc/core/02-client/types"
 	tibcpacket "github.com/bianjieai/tibc-go/modules/tibc/core/04-packet/types"
@@ -80,6 +81,9 @@ const (
 
 	MsgTypeSubmitEvidence  = "submit_evidence"
 	MsgTypeVerifyInvariant = "verify_invariant"
+
+	MsgTypeUpdateIdentity = "update_identity"
+	MsgTypeCreateIdentity = "create_identity"
 
 	TxTypeRequestRand = "request_rand"
 
@@ -188,6 +192,9 @@ type (
 	MsgStartFeed  = oracle.MsgStartFeed
 
 	MsgRequestRandom = random.MsgRequestRandom
+
+	MsgCreateIdentity = identity.MsgCreateIdentity
+	MsgUpdateIdentity = identity.MsgUpdateIdentity
 
 	//MsgStoreCode           = wasm.MsgStoreCode
 	//MsgInstantiateContract = wasm.MsgInstantiateContract

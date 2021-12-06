@@ -10,6 +10,7 @@ import (
 	"github.com/kaifei-bianjie/msg-parser/modules/evidence"
 	"github.com/kaifei-bianjie/msg-parser/modules/gov"
 	"github.com/kaifei-bianjie/msg-parser/modules/htlc"
+	"github.com/kaifei-bianjie/msg-parser/modules/identity"
 	"github.com/kaifei-bianjie/msg-parser/modules/nft"
 	"github.com/kaifei-bianjie/msg-parser/modules/oracle"
 	"github.com/kaifei-bianjie/msg-parser/modules/params"
@@ -43,6 +44,7 @@ type MsgClient struct {
 	Record       record.Client
 	Coinswap     coinswap.Client
 	Tibc         tibc.Client
+	Identity     identity.Client
 	//Wasm         wasm.Client
 }
 
@@ -68,6 +70,7 @@ func NewMsgClient() MsgClient {
 		Token:        token.NewClient(),
 		Coinswap:     coinswap.NewClient(),
 		Tibc:         tibc.NewClient(),
+		Identity:     identity.NewClient(),
 		//Wasm:         wasm.NewClient(),
 	}
 }
