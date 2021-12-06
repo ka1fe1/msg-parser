@@ -3,7 +3,7 @@ module github.com/kaifei-bianjie/msg-parser
 go 1.15
 
 require (
-	github.com/bianjieai/iritamod v1.0.1-0.20211026024119-806ffe494860 // indirect
+	github.com/bianjieai/iritamod v1.0.1-0.20211026024119-806ffe494860
 	github.com/bianjieai/tibc-go v0.2.0-alpha
 	github.com/cosmos/cosmos-sdk v0.44.2
 	github.com/irisnet/irismod v1.4.1-0.20211021075334-969a56e99ce9
