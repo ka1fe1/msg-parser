@@ -7,6 +7,7 @@ import (
 	cdc "github.com/kaifei-bianjie/msg-parser/codec"
 	. "github.com/kaifei-bianjie/msg-parser/modules"
 	"github.com/kaifei-bianjie/msg-parser/utils"
+	"strconv"
 )
 
 func loadPacket(packet icorechannel.Packet) Packet {
@@ -113,4 +114,17 @@ func GetIbcPacketDenom(packet Packet, packetMsgDenom string) string {
 	}
 
 	return denomTrace.BaseDenom
+}
+
+func ConvertUint64ToTimeStamp(data uint64) int64 {
+	dataStr := fmt.Sprint(data)
+	if len(dataStr) <= 10 {
+		return int64(data)
+	}
+	dataStr = dataStr[:10]
+	value, err := strconv.ParseInt(dataStr, 10, 64)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	return value
 }

@@ -27,7 +27,7 @@ func (m *DocMsgTransfer) BuildMsg(v interface{}) {
 	m.SourceChannel = msg.SourceChannel
 	m.Sender = msg.Sender
 	m.Receiver = msg.Receiver
-	m.TimeoutTimestamp = int64(msg.TimeoutTimestamp)
+	m.TimeoutTimestamp = ConvertUint64ToTimeStamp(msg.TimeoutTimestamp)
 	m.TimeoutHeight = loadHeight(msg.TimeoutHeight)
 	m.Token = models.BuildDocCoin(msg.Token)
 }

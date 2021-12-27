@@ -22,6 +22,10 @@ func (s IntegrationTestSuite) TestIbc() {
 			"MsgAcknowledgement",
 			MsgAcknowledgement,
 		},
+		{
+			"ConvertUint64ToTimeStamp",
+			TConvertUint64ToTimeStamp,
+		},
 	}
 
 	for _, t := range cases {
@@ -115,4 +119,8 @@ func GetIbcPacketDenom(s IntegrationTestSuite) {
 
 	fmt.Println("Iris Cosmos => Iris: ", ibc.GetIbcPacketDenom(packet, packet.Data.Denom))
 
+}
+
+func TConvertUint64ToTimeStamp(s IntegrationTestSuite) {
+	fmt.Println(ibc.ConvertUint64ToTimeStamp(16872756203559457792))
 }
