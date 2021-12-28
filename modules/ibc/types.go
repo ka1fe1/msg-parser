@@ -18,7 +18,7 @@ func loadPacket(packet icorechannel.Packet) Packet {
 		DestinationPort:    packet.DestinationPort,
 		DestinationChannel: packet.DestinationChannel,
 		Data:               UnmarshalPacketData(packet.GetData()),
-		TimeoutTimestamp:   int64(packet.TimeoutTimestamp),
+		TimeoutTimestamp:   ConvertUint64ToInt64(packet.TimeoutTimestamp),
 		TimeoutHeight:      loadHeight(packet.TimeoutHeight)}
 }
 
@@ -37,8 +37,8 @@ func UnmarshalPacketData(bytesdata []byte) PacketData {
 
 func loadHeight(height icoreclient.Height) Height {
 	return Height{
-		RevisionNumber: int64(height.RevisionNumber),
-		RevisionHeight: int64(height.RevisionHeight)}
+		RevisionNumber: ConvertUint64ToInt64(height.RevisionNumber),
+		RevisionHeight: ConvertUint64ToInt64(height.RevisionHeight)}
 }
 
 func loadChannel(channel icorechannel.Channel) Channel {
@@ -116,12 +116,13 @@ func GetIbcPacketDenom(packet Packet, packetMsgDenom string) string {
 	return denomTrace.BaseDenom
 }
 
-func ConvertUint64ToTimeStamp(data uint64) int64 {
+func ConvertUint64ToInt64(data uint64) int64 {
 	dataStr := fmt.Sprint(data)
-	if len(dataStr) <= 10 {
+	if len(dataStr) <= 19 {
 		return int64(data)
 	}
-	dataStr = dataStr[:10]
+
+	dataStr = dataStr[:19]
 	value, err := strconv.ParseInt(dataStr, 10, 64)
 	if err != nil {
 		fmt.Println(err.Error())

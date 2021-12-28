@@ -23,7 +23,7 @@ func (s IntegrationTestSuite) TestIbc() {
 			MsgAcknowledgement,
 		},
 		{
-			"ConvertUint64ToTimeStamp",
+			"Convert Uint64 To Int64",
 			TConvertUint64ToTimeStamp,
 		},
 	}
@@ -122,5 +122,5 @@ func GetIbcPacketDenom(s IntegrationTestSuite) {
 }
 
 func TConvertUint64ToTimeStamp(s IntegrationTestSuite) {
-	fmt.Println(ibc.ConvertUint64ToTimeStamp(16872756203559457792))
+	fmt.Println(ibc.ConvertUint64ToInt64(16872756203559457792))
 }
