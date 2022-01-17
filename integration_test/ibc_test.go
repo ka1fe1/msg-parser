@@ -17,6 +17,10 @@ func (s IntegrationTestSuite) TestIbc() {
 			"RecvPacket",
 			RecvPacket,
 		},
+		{
+			"UpdateClient",
+			UpdateClient,
+		},
 	}
 
 	for _, t := range cases {
@@ -36,8 +40,8 @@ func CreateClient(s IntegrationTestSuite) {
 		fmt.Println(err.Error())
 	}
 	for _, msg := range authTx.GetMsgs() {
-		if bankDoc, ok := s.Ibc.HandleTxMsg(msg); ok {
-			fmt.Println(utils.MarshalJsonIgnoreErr(bankDoc))
+		if doc, ok := s.Ibc.HandleTxMsg(msg); ok {
+			fmt.Println(utils.MarshalJsonIgnoreErr(doc))
 		}
 	}
 }
@@ -52,8 +56,24 @@ func RecvPacket(s IntegrationTestSuite) {
 		fmt.Println(err.Error())
 	}
 	for _, msg := range authTx.GetMsgs() {
-		if bankDoc, ok := s.Ibc.HandleTxMsg(msg); ok {
-			fmt.Println(utils.MarshalJsonIgnoreErr(bankDoc))
+		if doc, ok := s.Ibc.HandleTxMsg(msg); ok {
+			fmt.Println(utils.MarshalJsonIgnoreErr(doc))
+		}
+	}
+}
+
+func UpdateClient(s IntegrationTestSuite) {
+	txBytes, err := hex.DecodeString("0aff030a8c010a1c2f6373636861696e2e6962632e4d7367557064617465436c69656e74126c0a107368616e677a68656e675f6465765f33122c0a242f6373636861696e2e6962632e6c69676874636c69656e74732e7872702e486561646572120408d8bb411a2a6961613139796b6766763765356e6a6a6a6d616833616c646563356d766b336c37366a6c6a673765716b0aed020a1a2f6373636861696e2e6962632e4d7367526563765061636b657412ce020aeb010ae8017b226964223a22222c2274696d657374616d70223a22363935323939303630222c22686569676874223a2231303732363030222c2274785f68617368223a2244454346364546454137363143373535384239443632423737333146393031414434424539444332394542434446433638433041463435373643384441303644222c22636f6e74656e7473223a5b7b226469676573745f616c676f223a22222c22646967657374223a22222c22757269223a22393837363534333231343334333433313431323332313433372f30222c226d657461223a22227d5d2c2263726561746f72223a22227d18d8bb412a11616161333231656666333135646232326332107368616e677a68656e675f6465765f333a096962637265636f7264422a6961613139796b6766763765356e6a6a6a6d616833616c646563356d766b336c37366a6c6a673765716b12600a4a0a400a192f636f736d6f732e63727970746f2e736d322e5075624b657912230a210263424411692a1e4d6dd1e9a750cc64283487871a75128b3d2e531ce9a04800cc12040a020801180112120a0b0a05706f696e741202333010c096b1021a40908804d7b89f370ee7c9fab17d14582cfaed38461585450f4daad1f5e60e66932096bf2311dafffb1c98d6ca23b792e23cb9a49b45e7e1872676b27b8ad303fb")
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	authTx, err := GetSigningTx(txBytes)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	for _, msg := range authTx.GetMsgs() {
+		if doc, ok := s.Ibc.HandleTxMsg(msg); ok {
+			fmt.Println(utils.MarshalJsonIgnoreErr(doc))
 		}
 	}
 }
