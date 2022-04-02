@@ -3,11 +3,11 @@ package codec
 import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/simapp/params"
-	"github.com/cosmos/cosmos-sdk/std"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/x/auth/signing"
 	"github.com/tendermint/tendermint/types"
+	"github.com/tharsis/ethermint/encoding"
 )
 
 var (
@@ -17,12 +17,13 @@ var (
 
 // 初始化账户地址前缀
 func MakeEncodingConfig() {
-	encodingConfig := params.MakeTestEncodingConfig()
-	std.RegisterLegacyAminoCodec(encodingConfig.Amino)
-	std.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	//encodingConfig := params.MakeTestEncodingConfig()
 	moduleBasics := module.NewBasicManager(appModules...)
-	moduleBasics.RegisterLegacyAminoCodec(encodingConfig.Amino)
-	moduleBasics.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	encodingConfig := encoding.MakeConfig(moduleBasics)
+	//std.RegisterLegacyAminoCodec(encodingConfig.Amino)
+	//std.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	//moduleBasics.RegisterLegacyAminoCodec(encodingConfig.Amino)
+	//moduleBasics.RegisterInterfaces(encodingConfig.InterfaceRegistry)
 	encodecfg = encodingConfig
 }
 
