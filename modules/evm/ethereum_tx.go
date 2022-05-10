@@ -8,16 +8,10 @@ import (
 
 // MsgEthereumTx encapsulates an Ethereum transaction as an SDK message.
 type DocMsgEthereumTx struct {
-	// inner transaction data
-	Data string `bson:"data"`
-	// encoded storage size of the transaction
+	Data  string  `bson:"data"`
 	Size_ float64 `bson:"size"`
-	// transaction hash in hex format
-	Hash string `bson:"hash"`
-	// ethereum signer address in hex format. This address value is checked
-	// against the address derived from the signature (V, R, S) using the
-	// secp256k1 elliptic curve
-	From string `bson:"from"`
+	Hash  string  `bson:"hash"`
+	From  string  `bson:"from"`
 }
 
 func (doctx *DocMsgEthereumTx) GetType() string {

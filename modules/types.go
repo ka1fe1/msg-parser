@@ -215,5 +215,4 @@ type (
 	MsgRecvCleanPacket         = tibcpacket.MsgRecvCleanPacket
 
 	MsgEthereumTx = evm.MsgEthereumTx
-	EthereumLog   = evm.Log
 )
