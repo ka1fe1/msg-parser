@@ -6,6 +6,7 @@ require (
 	github.com/bianjieai/iritamod v1.0.1-0.20211026024119-806ffe494860
 	github.com/bianjieai/tibc-go v0.2.0-alpha
 	github.com/cosmos/cosmos-sdk v0.44.3
+	github.com/ethereum/go-ethereum v1.10.11
 	github.com/irisnet/irismod v1.5.2-0.20220222061735-b318859ba444
 	github.com/petermattis/goid v0.0.0-20180202154549-b0b1615b78e5 // indirect
 	github.com/stretchr/testify v1.7.0
