@@ -5,7 +5,6 @@ import (
 	tibctranfer "github.com/bianjieai/tibc-go/modules/tibc/apps/nft_transfer/types"
 	tibcclient "github.com/bianjieai/tibc-go/modules/tibc/core/02-client/types"
 	tibcpacket "github.com/bianjieai/tibc-go/modules/tibc/core/04-packet/types"
-	//"github.com/CosmWasm/wasmd/x/wasm"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bank "github.com/cosmos/cosmos-sdk/x/bank/types"
 	crisis "github.com/cosmos/cosmos-sdk/x/crisis/types"
@@ -23,6 +22,8 @@ import (
 	service "github.com/irisnet/irismod/modules/service/types"
 	token "github.com/irisnet/irismod/modules/token/types"
 	models "github.com/kaifei-bianjie/msg-parser/types"
+	//"github.com/CosmWasm/wasmd/x/wasm"
+	evm "github.com/tharsis/ethermint/x/evm/types"
 )
 
 const (
@@ -105,6 +106,8 @@ const (
 	MsgTypeTIBCAcknowledgement = "tibc_acknowledge_packet"
 	MsgTypeTIBCCleanPacket     = "clean_packet"
 	MsgTypeTIBCRecvCleanPacket = "recv_clean_packet"
+
+	MsgTypeEthereumTx = "ethereum_tx"
 )
 
 type (
@@ -210,4 +213,6 @@ type (
 	MsgTIBCAcknowledgement     = tibcpacket.MsgAcknowledgement
 	MsgCleanPacket             = tibcpacket.MsgCleanPacket
 	MsgRecvCleanPacket         = tibcpacket.MsgRecvCleanPacket
+
+	MsgEthereumTx = evm.MsgEthereumTx
 )

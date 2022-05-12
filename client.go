@@ -8,6 +8,7 @@ import (
 	"github.com/kaifei-bianjie/msg-parser/modules/crisis"
 	"github.com/kaifei-bianjie/msg-parser/modules/distribution"
 	"github.com/kaifei-bianjie/msg-parser/modules/evidence"
+	"github.com/kaifei-bianjie/msg-parser/modules/evm"
 	"github.com/kaifei-bianjie/msg-parser/modules/gov"
 	"github.com/kaifei-bianjie/msg-parser/modules/htlc"
 	"github.com/kaifei-bianjie/msg-parser/modules/identity"
@@ -46,6 +47,7 @@ type MsgClient struct {
 	Tibc         tibc.Client
 	Identity     identity.Client
 	//Wasm         wasm.Client
+	Evm evm.Client
 }
 
 func NewMsgClient() MsgClient {
@@ -72,5 +74,6 @@ func NewMsgClient() MsgClient {
 		Tibc:         tibc.NewClient(),
 		Identity:     identity.NewClient(),
 		//Wasm:         wasm.NewClient(),
+		Evm: evm.NewClient(),
 	}
 }
