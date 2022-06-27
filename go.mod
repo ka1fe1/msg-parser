@@ -3,13 +3,14 @@ module github.com/kaifei-bianjie/msg-parser
 go 1.15
 
 require (
-	github.com/bianjieai/iritamod v1.0.1-0.20211026024119-806ffe494860
+	github.com/bianjieai/iritamod v1.2.1-0.20220222035322-99168809cf24
 	github.com/bianjieai/tibc-go v0.2.0-alpha
-	github.com/cosmos/cosmos-sdk v0.44.3
+	github.com/cosmos/cosmos-sdk v0.44.4
+	github.com/golang/protobuf v1.5.2
 	github.com/irisnet/irismod v1.5.2-0.20220222061735-b318859ba444
 	github.com/petermattis/goid v0.0.0-20180202154549-b0b1615b78e5 // indirect
 	github.com/stretchr/testify v1.7.0
-	github.com/tendermint/tendermint v0.34.14
+	github.com/tendermint/tendermint v0.35.0
 	github.com/tharsis/ethermint v0.8.1
 )
 
