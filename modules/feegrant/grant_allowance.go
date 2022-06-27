@@ -40,12 +40,9 @@ func (m *DocTxMsgGrantAllowance) BuildMsg(v interface{}) {
 }
 
 func (m *DocTxMsgGrantAllowance) HandleTxMsg(v sdk.Msg) MsgDocInfo {
-	var (
-		addrs []string
-		msg   MsgGrantAllowance
-	)
+	var addrs []string
 
-	ConvertMsg(v, &msg)
+	msg := v.(*MsgGrantAllowance)
 	addrs = append(addrs, msg.Granter, msg.Grantee)
 	handler := func() (Msg, []string) {
 		return m, addrs

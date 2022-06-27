@@ -22,12 +22,9 @@ func (m *DocTxMsgRevokeAllowance) BuildMsg(v interface{}) {
 }
 
 func (m *DocTxMsgRevokeAllowance) HandleTxMsg(v sdk.Msg) MsgDocInfo {
-	var (
-		addrs []string
-		msg   MsgRevokeAllowance
-	)
+	var addrs []string
 
-	ConvertMsg(v, &msg)
+	msg := v.(*MsgRevokeAllowance)
 	addrs = append(addrs, msg.Granter, msg.Grantee)
 	handler := func() (Msg, []string) {
 		return m, addrs

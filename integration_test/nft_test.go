@@ -10,7 +10,7 @@ import (
 func (s IntegrationTestSuite) TestNft() {
 	cases := []SubTest{
 		{
-			"IssueDenom",
+			"MintNFT",
 			MintNFT,
 		},
 		{

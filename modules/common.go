@@ -1,9 +1,7 @@
 package msgs
 
 import (
-	"github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/golang/protobuf/proto"
 	cdc "github.com/kaifei-bianjie/msg-parser/codec"
 	models "github.com/kaifei-bianjie/msg-parser/types"
 	"github.com/kaifei-bianjie/msg-parser/utils"
@@ -35,16 +33,10 @@ func CreateMsgDocInfo(msg sdk.Msg, handler func() (Msg, []string)) MsgDocInfo {
 	}
 }
 
-func ConvertMsg(v proto.Message, msg proto.Message) {
-	bytes, _ := proto.Marshal(v)
-	_ = proto.Unmarshal(bytes, msg)
-}
-
-func ConvertAny(v *types.Any) string {
-	if v != nil {
-		return utils.MarshalJsonIgnoreErr(v)
-	}
-	return ""
+// ConvertMsg
+// Deprecated, use type assertion instead of this
+func ConvertMsg(v interface{}, msg interface{}) {
+	utils.UnMarshalJsonIgnoreErr(utils.MarshalJsonIgnoreErr(v), &msg)
 }
 
 func UnmarshalTibcAcknowledgement(bytesdata []byte) string {
