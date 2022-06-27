@@ -7,12 +7,13 @@ import (
 
 type (
 	DocMsgNFTEdit struct {
-		Sender string `bson:"sender"`
-		Id     string `bson:"id"`
-		Denom  string `bson:"denom"`
-		URI    string `bson:"uri"`
-		Data   string `bson:"data"`
-		Name   string `bson:"name"`
+		Sender  string `bson:"sender"`
+		Id      string `bson:"id"`
+		Denom   string `bson:"denom"`
+		URI     string `bson:"uri"`
+		Data    string `bson:"data"`
+		Name    string `bson:"name"`
+		UriHash string `bson:"uri_hash"`
 	}
 )
 
@@ -29,15 +30,13 @@ func (m *DocMsgNFTEdit) BuildMsg(v interface{}) {
 	m.URI = msg.URI
 	m.Data = msg.Data
 	m.Name = msg.Name
+	m.UriHash = msg.UriHash
 }
 
 func (m *DocMsgNFTEdit) HandleTxMsg(v SdkMsg) MsgDocInfo {
-	var (
-		addrs []string
-		msg   MsgNFTEdit
-	)
+	var addrs []string
 
-	ConvertMsg(v, &msg)
+	msg := v.(*MsgNFTEdit)
 	addrs = append(addrs, msg.Sender)
 	handler := func() (Msg, []string) {
 		return m, addrs

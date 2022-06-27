@@ -33,8 +33,6 @@ func (m *DocMsgCallService) BuildMsg(msg interface{}) {
 	m.Input = v.Input
 	m.ServiceFeeCap = models.BuildDocCoins(v.ServiceFeeCap)
 	m.Timeout = v.Timeout
-	//m.Input = hex.EncodeToString(v.Input)
-	m.SuperMode = v.SuperMode
 	m.Repeated = v.Repeated
 	m.RepeatedFrequency = int64(v.RepeatedFrequency)
 	m.RepeatedTotal = v.RepeatedTotal

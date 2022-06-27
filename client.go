@@ -8,6 +8,7 @@ import (
 	"github.com/kaifei-bianjie/msg-parser/modules/crisis"
 	"github.com/kaifei-bianjie/msg-parser/modules/distribution"
 	"github.com/kaifei-bianjie/msg-parser/modules/evidence"
+	"github.com/kaifei-bianjie/msg-parser/modules/feegrant"
 	"github.com/kaifei-bianjie/msg-parser/modules/gov"
 	"github.com/kaifei-bianjie/msg-parser/modules/htlc"
 	"github.com/kaifei-bianjie/msg-parser/modules/ibc"
@@ -31,6 +32,7 @@ type MsgClient struct {
 	Crisis       crisis.Client
 	Distribution distribution.Client
 	Evidence     evidence.Client
+	Feegrant     feegrant.Client
 	Gov          gov.Client
 	Ibc          ibc.Client
 	Params       params.Client
@@ -55,6 +57,7 @@ func NewMsgClient() MsgClient {
 		Crisis:       crisis.NewClient(),
 		Distribution: distribution.NewClient(),
 		Evidence:     distribution.NewClient(),
+		Feegrant:     feegrant.NewClient(),
 		Gov:          gov.NewClient(),
 		Ibc:          ibc.NewClient(),
 		Params:       params.NewClient(),

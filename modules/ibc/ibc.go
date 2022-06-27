@@ -17,16 +17,16 @@ func (ibc ibcClient) HandleTxMsg(v types.Msg) (MsgDocInfo, bool) {
 		msgDocInfo MsgDocInfo
 	)
 	ok := true
-	switch v.Type() {
-	case new(MsgRecvPacket).Type():
+	switch msg := v.(type) {
+	case *MsgRecvPacket:
 		docMsg := DocMsgRecvPacket{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
-	case new(MsgCreateClient).Type():
+		msgDocInfo = docMsg.HandleTxMsg(msg)
+	case *MsgCreateClient:
 		docMsg := DocMsgCreateClient{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
-	case new(MsgUpdateClient).Type():
+		msgDocInfo = docMsg.HandleTxMsg(msg)
+	case *MsgUpdateClient:
 		docMsg := DocMsgUpdateClient{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 	default:
 		ok = false
 	}

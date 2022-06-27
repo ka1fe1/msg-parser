@@ -17,14 +17,14 @@ func (nft identityClient) HandleTxMsg(v types.Msg) (MsgDocInfo, bool) {
 		msgDocInfo MsgDocInfo
 	)
 	ok := true
-	switch v.Type() {
-	case new(MsgCreateIdentity).Type():
+	switch msg := v.(type) {
+	case *MsgCreateIdentity:
 		docMsg := DocMsgCreateIdentity{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 		break
-	case new(MsgUpdateIdentity).Type():
+	case *MsgUpdateIdentity:
 		docMsg := DocMsgUpdateIdentity{}
-		msgDocInfo = docMsg.HandleTxMsg(v)
+		msgDocInfo = docMsg.HandleTxMsg(msg)
 		break
 	default:
 		ok = false
