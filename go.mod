@@ -8,7 +8,7 @@ require (
 	github.com/irisnet/irismod v1.1.1-0.20201211020601-9c939d7f8ccc
 	github.com/stretchr/testify v1.6.1
 	github.com/tendermint/tendermint v0.34.0-rc6
-	gitlab.bianjie.ai/cschain/cschain v1.1.1-0.20220112104127-6d72dd1c1b6a
+	gitlab.bianjie.ai/cschain/cschain v1.1.1-0.20220408091704-7cb27d0fe0f4
 )
 
 replace (
