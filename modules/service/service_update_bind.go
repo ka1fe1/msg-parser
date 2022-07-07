@@ -12,6 +12,7 @@ type (
 		Deposit     models.Coins `bson:"deposit" yaml:"deposit"`
 		Pricing     string       `bson:"pricing" yaml:"pricing"`
 		QoS         int64        `bson:"qos" yaml:"qos"`
+		Options     string       `bson:"options" yaml:"options"`
 		Owner       string       `bson:"owner" yaml:"owner"`
 	}
 )
@@ -28,6 +29,7 @@ func (m *DocMsgUpdateServiceBinding) BuildMsg(v interface{}) {
 	m.Deposit = models.BuildDocCoins(msg.Deposit)
 	m.Pricing = msg.Pricing
 	m.QoS = int64(msg.QoS)
+	m.Options = msg.Options
 	m.Owner = msg.Owner
 }
 

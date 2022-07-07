@@ -14,6 +14,7 @@ type (
 		Denom     string `bson:"denom"`
 		Id        string `bson:"id"`
 		Data      string `bson:"data"`
+		UriHash   string `bson:"uri_hash"`
 	}
 )
 
@@ -31,15 +32,13 @@ func (m *DocMsgNFTTransfer) BuildMsg(v interface{}) {
 	m.URI = msg.URI
 	m.Data = msg.Data
 	m.Name = msg.Name
+	m.UriHash = msg.UriHash
 }
 
 func (m *DocMsgNFTTransfer) HandleTxMsg(v SdkMsg) MsgDocInfo {
-	var (
-		addrs []string
-		msg   MsgNFTTransfer
-	)
+	var addrs []string
 
-	ConvertMsg(v, &msg)
+	msg := v.(*MsgNFTTransfer)
 	addrs = append(addrs, msg.Sender, msg.Recipient)
 	handler := func() (Msg, []string) {
 		return m, addrs
