@@ -16,6 +16,7 @@ import (
 	stake "github.com/cosmos/cosmos-sdk/x/staking/types"
 	coinswap "github.com/irisnet/irismod/modules/coinswap/types"
 	htlc "github.com/irisnet/irismod/modules/htlc/types"
+	mt "github.com/irisnet/irismod/modules/mt/types"
 	nft "github.com/irisnet/irismod/modules/nft/types"
 	oracle "github.com/irisnet/irismod/modules/oracle/types"
 	random "github.com/irisnet/irismod/modules/random/types"
@@ -37,6 +38,13 @@ const (
 	MsgTypeNFTBurn       = "burn_nft"
 	MsgTypeIssueDenom    = "issue_denom"
 	MsgTypeRecordCreate  = "create_record"
+
+	MsgTypeMTIssueDenom    = "mt_issue_denom"
+	MsgTypeMTTransferDenom = "mt_transfer_denom"
+	MsgTypeMintMT          = "mint_mt"
+	MsgTypeTransferMT      = "transfer_mt"
+	MsgTypeEditMT          = "edit_mt"
+	MsgTypeBurnMT          = "burn_mt"
 
 	MsgTypeMintToken          = "mint_token"
 	MsgTypeBurnToken          = "burn_token"
@@ -137,6 +145,13 @@ type (
 	MsgIssueDenom    = nft.MsgIssueDenom
 	MsgTransferDenom = nft.MsgTransferDenom
 
+	MsgMTMint          = mt.MsgMintMT
+	MsgMTEdit          = mt.MsgEditMT
+	MsgMTTransfer      = mt.MsgTransferMT
+	MsgMTBurn          = mt.MsgBurnMT
+	MsgMTIssueDenom    = mt.MsgIssueDenom
+	MsgMTTransferDenom = mt.MsgTransferDenom
+
 	MsgDefineService  = service.MsgDefineService
 	MsgBindService    = service.MsgBindService
 	MsgCallService    = service.MsgCallService
@@ -155,9 +170,9 @@ type (
 
 	MsgRecordCreate = record.MsgCreateRecord
 
-	MsgIssueToken = token.MsgIssueToken
-	MsgEditToken  = token.MsgEditToken
-	//MsgBurnToken          = token.MsgBurnToken
+	MsgIssueToken         = token.MsgIssueToken
+	MsgEditToken          = token.MsgEditToken
+	MsgBurnToken          = token.MsgBurnToken
 	MsgMintToken          = token.MsgMintToken
 	MsgTransferTokenOwner = token.MsgTransferTokenOwner
 
