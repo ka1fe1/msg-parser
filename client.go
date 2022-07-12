@@ -13,6 +13,7 @@ import (
 	"github.com/kaifei-bianjie/msg-parser/modules/gov"
 	"github.com/kaifei-bianjie/msg-parser/modules/htlc"
 	"github.com/kaifei-bianjie/msg-parser/modules/identity"
+	"github.com/kaifei-bianjie/msg-parser/modules/mt"
 	"github.com/kaifei-bianjie/msg-parser/modules/nft"
 	"github.com/kaifei-bianjie/msg-parser/modules/oracle"
 	"github.com/kaifei-bianjie/msg-parser/modules/params"
@@ -40,6 +41,7 @@ type MsgClient struct {
 	Upgrade      upgrade.Client
 	Service      service.Client
 	Nft          nft.Client
+	Mt           mt.Client
 	Token        token.Client
 	Random       random.Client
 	Oracle       oracle.Client
@@ -68,6 +70,7 @@ func NewMsgClient() MsgClient {
 		Staking:      staking.NewClient(),
 		Service:      service.NewClient(),
 		Nft:          nft.NewClient(),
+		Mt:           mt.NewClient(),
 		Record:       record.NewClient(),
 		Random:       random.NewClient(),
 		Oracle:       oracle.NewClient(),
