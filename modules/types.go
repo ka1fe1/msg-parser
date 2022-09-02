@@ -2,6 +2,8 @@ package msgs
 
 import (
 	"github.com/bianjieai/iritamod/modules/identity"
+	"github.com/bianjieai/iritamod/modules/perm"
+	iritaslashing "github.com/bianjieai/iritamod/modules/slashing"
 	tibctranfer "github.com/bianjieai/tibc-go/modules/tibc/apps/nft_transfer/types"
 	tibcclient "github.com/bianjieai/tibc-go/modules/tibc/core/02-client/types"
 	tibcpacket "github.com/bianjieai/tibc-go/modules/tibc/core/04-packet/types"
@@ -76,6 +78,7 @@ const (
 	MsgTypeStakeBeginUnbonding            = "begin_unbonding"
 	MsgTypeBeginRedelegate                = "begin_redelegate"
 	MsgTypeUnjail                         = "unjail"
+	MsgTypeUnjailValidator                = "unjail_validator"
 	MsgTypeSetWithdrawAddress             = "set_withdraw_address"
 	MsgTypeWithdrawDelegatorReward        = "withdraw_delegator_reward"
 	MsgTypeMsgFundCommunityPool           = "fund_community_pool"
@@ -120,6 +123,11 @@ const (
 	MsgTypeTIBCRecvCleanPacket = "recv_clean_packet"
 
 	MsgTypeEthereumTx = "ethereum_tx"
+
+	DocTypeAssignRoles   = "assign_roles"
+	DocTypeUnassignRoles = "unassign_roles"
+	DocTypeBlockAccount  = "block_account"
+	DocTypeUnlockAccount = "unblock_account"
 )
 
 type (
@@ -182,6 +190,7 @@ type (
 	MsgStakeBeginUnbonding         = stake.MsgUndelegate
 	MsgBeginRedelegate             = stake.MsgBeginRedelegate
 	MsgUnjail                      = slashing.MsgUnjail
+	MsgUnjailValidator             = iritaslashing.MsgUnjailValidator
 	MsgStakeSetWithdrawAddress     = distribution.MsgSetWithdrawAddress
 	MsgWithdrawDelegatorReward     = distribution.MsgWithdrawDelegatorReward
 	MsgFundCommunityPool           = distribution.MsgFundCommunityPool
@@ -237,4 +246,9 @@ type (
 	MsgRecvCleanPacket         = tibcpacket.MsgRecvCleanPacket
 
 	MsgEthereumTx = evm.MsgEthereumTx
+
+	MsgAssignRoles    = perm.MsgAssignRoles
+	MsgUnassignRoles  = perm.MsgUnassignRoles
+	MsgBlockAccount   = perm.MsgBlockAccount
+	MsgUnblockAccount = perm.MsgUnblockAccount
 )

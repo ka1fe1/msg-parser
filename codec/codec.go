@@ -1,13 +1,17 @@
 package codec
 
 import (
+	"github.com/bianjieai/spartan-cosmos/module/node"
 	"github.com/cosmos/cosmos-sdk/codec"
+	amino "github.com/cosmos/cosmos-sdk/codec"
+	types2 "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/x/auth/signing"
+	"github.com/cosmos/cosmos-sdk/x/auth/tx"
 	"github.com/tendermint/tendermint/types"
-	"github.com/tharsis/ethermint/encoding"
+	enccodec "github.com/tharsis/ethermint/encoding/codec"
 )
 
 var (
@@ -17,14 +21,31 @@ var (
 
 // 初始化账户地址前缀
 func MakeEncodingConfig() {
-	//encodingConfig := params.MakeTestEncodingConfig()
 	moduleBasics := module.NewBasicManager(appModules...)
-	encodingConfig := encoding.MakeConfig(moduleBasics)
-	//std.RegisterLegacyAminoCodec(encodingConfig.Amino)
-	//std.RegisterInterfaces(encodingConfig.InterfaceRegistry)
-	//moduleBasics.RegisterLegacyAminoCodec(encodingConfig.Amino)
-	//moduleBasics.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	encodingConfig := MakeConfig(moduleBasics)
+
 	encodecfg = encodingConfig
+}
+
+// MakeConfig creates an EncodingConfig for testing
+func MakeConfig(mb module.BasicManager) params.EncodingConfig {
+	cdc := amino.NewLegacyAmino()
+	interfaceRegistry := types2.NewInterfaceRegistry()
+	marshaler := amino.NewProtoCodec(interfaceRegistry)
+
+	node.RegisterInterfaces(interfaceRegistry)
+	encodingConfig := params.EncodingConfig{
+		InterfaceRegistry: interfaceRegistry,
+		Marshaler:         marshaler,
+		TxConfig:          tx.NewTxConfig(marshaler, tx.DefaultSignModes),
+		Amino:             cdc,
+	}
+
+	enccodec.RegisterLegacyAminoCodec(encodingConfig.Amino)
+	mb.RegisterLegacyAminoCodec(encodingConfig.Amino)
+	enccodec.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	mb.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	return encodingConfig
 }
 
 func GetTxDecoder() sdk.TxDecoder {
