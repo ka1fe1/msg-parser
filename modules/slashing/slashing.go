@@ -13,14 +13,13 @@ func NewClient() Client {
 }
 
 func (slashing slashingClient) HandleTxMsg(v sdk.Msg) (MsgDocInfo, bool) {
-	ok := true
 	switch msg := v.(type) {
 	case *MsgUnjail:
 		docMsg := DocTxMsgUnjail{}
-		return docMsg.HandleTxMsg(msg), ok
-
-	default:
-		ok = false
+		return docMsg.HandleTxMsg(msg), true
+	case *MsgUnjailValidator:
+		docMsg := DocTxMsgUnjailValidator{}
+		return docMsg.HandleTxMsg(msg), true
 	}
-	return MsgDocInfo{}, ok
+	return MsgDocInfo{}, false
 }

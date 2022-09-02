@@ -2,6 +2,7 @@ package msgs
 
 import (
 	"github.com/bianjieai/iritamod/modules/identity"
+	iritaslashing "github.com/bianjieai/iritamod/modules/slashing"
 	tibctranfer "github.com/bianjieai/tibc-go/modules/tibc/apps/nft_transfer/types"
 	tibcclient "github.com/bianjieai/tibc-go/modules/tibc/core/02-client/types"
 	tibcpacket "github.com/bianjieai/tibc-go/modules/tibc/core/04-packet/types"
@@ -76,6 +77,7 @@ const (
 	MsgTypeStakeBeginUnbonding            = "begin_unbonding"
 	MsgTypeBeginRedelegate                = "begin_redelegate"
 	MsgTypeUnjail                         = "unjail"
+	MsgTypeUnjailValidator                = "unjail_validator"
 	MsgTypeSetWithdrawAddress             = "set_withdraw_address"
 	MsgTypeWithdrawDelegatorReward        = "withdraw_delegator_reward"
 	MsgTypeMsgFundCommunityPool           = "fund_community_pool"
@@ -182,6 +184,7 @@ type (
 	MsgStakeBeginUnbonding         = stake.MsgUndelegate
 	MsgBeginRedelegate             = stake.MsgBeginRedelegate
 	MsgUnjail                      = slashing.MsgUnjail
+	MsgUnjailValidator             = iritaslashing.MsgUnjailValidator
 	MsgStakeSetWithdrawAddress     = distribution.MsgSetWithdrawAddress
 	MsgWithdrawDelegatorReward     = distribution.MsgWithdrawDelegatorReward
 	MsgFundCommunityPool           = distribution.MsgFundCommunityPool
