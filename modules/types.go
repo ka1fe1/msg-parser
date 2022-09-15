@@ -86,6 +86,7 @@ const (
 	MsgTypeSubmitProposal                 = "submit_proposal"
 	MsgTypeDeposit                        = "deposit"
 	MsgTypeVote                           = "vote"
+	MsgTypeVoteWeighted                   = "vote_weighted"
 
 	MsgTypeCreateHTLC = "create_htlc"
 	MsgTypeClaimHTLC  = "claim_htlc"
@@ -209,6 +210,7 @@ type (
 	Proposal          = gov.Proposal
 	SdkVote           = gov.Vote
 	GovContent        = gov.Content
+	MsgVoteWeighted   = gov.MsgVoteWeighted
 
 	MsgSwapOrder       = coinswap.MsgSwapOrder
 	MsgAddLiquidity    = coinswap.MsgAddLiquidity
